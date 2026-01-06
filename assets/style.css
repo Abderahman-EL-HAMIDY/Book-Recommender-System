@@ -1,0 +1,171 @@
+/* ====================================
+   BOOK RECOMMENDER - CUSTOM STYLES
+   ==================================== */
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Hide Streamlit branding */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+/* ====================================
+   TYPOGRAPHY
+   ==================================== */
+h1 {
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+}
+
+h2, h3 {
+    color: #f0f2f6;
+}
+
+/* ====================================
+   BUTTONS
+   ==================================== */
+div.stButton > button {
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-weight: 600;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+div.stButton > button:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 6px 10px rgba(0,0,0,0.3);
+    background: linear-gradient(90deg, #182848 0%, #4b6cb7 100%);
+}
+
+div.stButton > button:active {
+    transform: scale(0.98);
+}
+
+/* ====================================
+   SEARCH BAR
+   ==================================== */
+.stTextInput > div > div > input {
+    border-radius: 20px;
+    padding: 12px 20px;
+    border: 2px solid #4b6cb7;
+    transition: border 0.3s ease;
+}
+
+.stTextInput > div > div > input:focus {
+    border-color: #182848;
+    box-shadow: 0 0 0 2px rgba(75, 108, 183, 0.2);
+}
+
+/* ====================================
+   BOOK CARDS - EQUAL HEIGHT FIX
+   ==================================== */
+
+/* Force grid layout on column containers */
+div[data-testid="column"] {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 480px !important; /* CRITICAL: Minimum card height */
+}
+
+/* Ensure all nested divs stretch */
+div[data-testid="column"] > div {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+/* Book card wrapper */
+.book-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    min-height: 480px !important;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* Image container - fixed height */
+.book-image-container {
+    width: 100%;
+    height: 300px !important;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    flex-shrink: 0;
+}
+
+.book-image-container img {
+    width: 100%;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.3s ease;
+}
+
+.book-card:hover .book-image-container img {
+    transform: scale(1.05);
+}
+
+/* Title container - fixed height */
+.book-title {
+    height: 75px !important;
+    min-height: 75px !important;
+    max-height: 75px !important;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #f0f2f6;
+    margin-bottom: 10px;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+/* Button container - pushed to bottom */
+.book-button {
+    margin-top: auto !important;
+    padding-top: 10px;
+}
+
+/* ====================================
+   STREAMLIT NATIVE COMPONENTS
+   ==================================== */
+div[data-testid="stImage"] {
+    margin-bottom: 0 !important;
+}
+
+/* Metric styling */
+div[data-testid="stMetric"] {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Info boxes */
+.stAlert {
+    border-radius: 10px;
+}
