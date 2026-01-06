@@ -1,3 +1,4 @@
+```markdown
 # Book Recommender System
 
 A hybrid recommendation system combining Collaborative Filtering (SVD) and Content-Based Filtering to provide personalized book recommendations. Built for the Master in Artificial Intelligence program at Cadi Ayyad University.
@@ -8,6 +9,7 @@ A hybrid recommendation system combining Collaborative Filtering (SVD) and Conte
 - Abderahman El-Hamidy
 
 **Supervised by:** Pr. Yassine Afoudi  
+
 ---
 
 ## Table of Contents
@@ -55,8 +57,11 @@ The final solution is a weighted hybrid model that combines:
 ### Hybrid Formula
 
 The final recommendation score is calculated using a weighted combination:
+
 ```
+
 Score_final = (α × SVD_score) + ((1 - α) × Content_score)
+
 ```
 
 Where:
@@ -149,87 +154,88 @@ We benchmarked 7 different recommendation algorithms:
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/YOUR_USERNAME/book-recommender-system.git
-cd book-recommender-system
+git clone [https://github.com/YOUR_USERNAME/Book-Recommender-System.git](https://github.com/YOUR_USERNAME/Book-Recommender-System.git)
+cd Book-Recommender-System
+
 ```
 
-2. **Create virtual environment**
+2. **Set up the virtual environment**
+
 ```bash
+# Create the virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Activate the environment
+# On macOS/Linux:
+source venv/bin/activate
+# On Windows:
+# venv\Scripts\activate
+
 ```
 
 3. **Install dependencies**
+
 ```bash
 pip install -r requirements.txt
+
 ```
 
-4. **Download the dataset**
+4. **Verify Data and Models**
+The repository comes pre-loaded with the necessary data and trained models. Ensure the following files exist in your directory:
 
-Due to file size limitations, the dataset and trained models are not included in this repository.
+* `data/books.csv` and `data/ratings.csv`
+* `models/svd_model.pkl` and `models/cbf_model.pkl`
 
-**Dataset**: [Goodbooks-10k on Kaggle](https://www.kaggle.com/datasets/zygmunt/goodbooks-10k)
-
-Download and place the following files in the `data/` directory:
-- `books.csv`
-- `ratings.csv`
-- `book_tags.csv`
-- `tags.csv`
-- `to_read.csv`
-
-5. **Train the models** (Optional - if models not provided)
-```bash
-python train_models.py
-```
-
-This will generate:
-- `models/svd_model.pkl`
-- `models/cbf_model.pkl`
+*(Note: If the data files are missing, you can download them from the [Goodbooks-10k Dataset](https://www.kaggle.com/datasets/zygmunt/goodbooks-10k) and place them in the `data/` folder.)*
 
 ---
 
 ## Usage
 
 ### Running the Application
+
 ```bash
 streamlit run app.py
+
 ```
 
-The application will open in your browser at `http://localhost:8501`
+The application will open in your browser at `http://localhost:8501`.
 
 ### Features
 
-1. **User Profile**: Enter a user ID to get personalized recommendations
-2. **Cold Start Mode**: For new users, select a favorite book to initialize preferences
-3. **Search**: Find books by title
-4. **Book Details**: Click on any book to view full details and similar recommendations
+1. **User Profile**: Enter a user ID to get personalized recommendations.
+2. **Cold Start Mode**: For new users, select a favorite book to initialize preferences.
+3. **Search**: Find books by title.
+4. **Book Details**: Click on any book to view full details and similar recommendations.
 
 ---
 
 ## Project Structure
-```
-book-recommender-system/
-├── app.py                    # Main Streamlit application
-├── train_models.py           # Model training script
-├── requirements.txt          # Python dependencies
-├── packages.txt              # System packages (for deployment)
-├── .gitignore               # Git ignore rules
+
+```text
+Book-Recommender-System/
+├── app.py                   # Main Streamlit application
+├── requirements.txt         # Python dependencies
+├── README.md                # Project documentation
+├── LICENSE                  # License file
 │
 ├── assets/
 │   └── style.css            # Custom CSS styling
 │
-├── data/                    # Dataset files (not tracked)
+├── data/                    # Dataset files
 │   ├── books.csv
 │   ├── ratings.csv
 │   ├── book_tags.csv
 │   ├── tags.csv
-│   └── to_read.csv
+│   ├── to_read.csv
+│   └── sample_book.xml
 │
-├── models/                  # Trained models (not tracked)
-│   ├── svd_model.pkl
-│   └── cbf_model.pkl
+├── models/                  # Trained models
+│   ├── svd_model.pkl        # Collaborative filtering model
+│   └── cbf_model.pkl        # Content-based filtering data
 │
-└── venv/                    # Virtual environment (not tracked)
+└── venv/                    # Virtual environment
+
 ```
 
 ---
@@ -238,15 +244,15 @@ book-recommender-system/
 
 ### Backend
 
-- **Scikit-Learn**: TF-IDF vectorization, cosine similarity
-- **Surprise Library**: SVD model training and inference
-- **Pandas**: Data manipulation
-- **NumPy**: Numerical computations
+* **Scikit-Learn**: TF-IDF vectorization, cosine similarity
+* **Surprise Library**: SVD model training and inference
+* **Pandas**: Data manipulation
+* **NumPy**: Numerical computations
 
 ### Frontend
 
-- **Streamlit**: Interactive web interface
-- **Custom CSS**: Professional styling with flexbox layout
+* **Streamlit**: Interactive web interface
+* **Custom CSS**: Professional styling with flexbox layout
 
 ### Model Serialization
 
@@ -259,102 +265,37 @@ Models are serialized using Python's `pickle` module for instant inference witho
 ### Planned Enhancements
 
 1. **Dynamic User-Profile Tracking**
-   - Implement temporal dynamics to track evolving user preferences
-   - Weight recent interactions more heavily
+* Implement temporal dynamics to track evolving user preferences
+* Weight recent interactions more heavily
+
 
 2. **Online Learning Pipeline**
-   - Real-time model updates after user interactions
-   - Incremental learning without full retraining
+* Real-time model updates after user interactions
+* Incremental learning without full retraining
+
 
 3. **Deep Content Understanding**
-   - Integrate Large Language Models (LLMs) for plot summary analysis
-   - Use CNNs to extract visual features from book covers
+* Integrate Large Language Models (LLMs) for plot summary analysis
+* Use CNNs to extract visual features from book covers
+
 
 4. **Advanced Features**
-   - Multi-criteria recommendations (genre, mood, reading level)
-   - Social features (friend recommendations, reading groups)
-   - A/B testing framework for model comparison
+* Multi-criteria recommendations (genre, mood, reading level)
+* Social features (friend recommendations, reading groups)
+* A/B testing framework for model comparison
 
----
 
-## Deployment
-
-### Streamlit Cloud
-
-This application can be deployed on Streamlit Cloud:
-
-1. Push repository to GitHub
-2. Connect your GitHub account to [Streamlit Cloud](https://streamlit.io/cloud)
-3. Select this repository
-4. Add dataset files via Streamlit secrets or external storage
-
-### Alternative Platforms
-
-- **Heroku**: Deploy using `Procfile`
-- **AWS**: EC2 or Elastic Beanstalk
-- **Docker**: Containerized deployment
 
 ---
 
 ## References
 
 1. He, X., et al. (2020). LightGCN: Simplifying and powering graph convolution network for recommendation. SIGIR 2020.
-
 2. Lops, P., et al. (2011). Content-based recommender systems: State of the art and trends. Recommender Systems Handbook.
-
 3. [Surprise Library Documentation](https://surprise.readthedocs.io/en/stable/)
-
 4. [Goodbooks-10k Dataset](https://www.kaggle.com/datasets/zygmunt/goodbooks-10k)
-
 5. [Streamlit Documentation](https://docs.streamlit.io/)
 
----
-
-## License
-
-This project is part of academic research at Cadi Ayyad University. 
-
----
-
-## Acknowledgments
-
-- **Professor Yassine Afoudi** for supervision and guidance
-- **Cadi Ayyad University** for providing resources and support
-- **Kaggle** for hosting the Goodbooks-10k dataset
-
----
-
-## Contact
-
-For questions or collaboration:
-
-- Mustapha Mensouri - [GitHub Profile]
-- Abderahman El-Hamidy - [GitHub Profile]
-
-**University**: Cadi Ayyad University  
-**Program**: Master in Artificial Intelligence  
-**Year**: 2026
 ```
 
----
-
-### **4. Create `requirements.txt`**
-
-**File: `requirements.txt`**
 ```
-streamlit==1.31.0
-pandas==2.1.4
-numpy==1.26.3
-scikit-learn==1.4.0
-scikit-surprise==1.1.3
-Pillow==10.2.0
-```
-
----
-
-### **5. Create `packages.txt`** (for Streamlit Cloud deployment)
-
-**File: `packages.txt`**
-```
-python3-dev
-build-essential
